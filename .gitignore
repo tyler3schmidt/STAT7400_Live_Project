@@ -1,0 +1,8 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+STAT_7400_Image_Submission/
+*.jpeg
