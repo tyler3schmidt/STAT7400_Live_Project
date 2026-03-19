@@ -454,17 +454,14 @@ def refine_mask(
     # Convert to boolean
     mask_bool = mask > 0
 
-    # Fill small internal holes
-    mask_filled = morphology.remove_small_holes(
-        mask_bool,
-        area_threshold=hole_area
-    )
+   # Ensure boolean mask
+    mask_bool = mask > 0
 
-    # Remove small objects (noise)
-    mask_clean = morphology.remove_small_objects(
-        mask_filled,
-        min_size=min_object_size
-    )
+    # Remove small holes (max_size replaces area_threshold)
+    mask_filled = morphology.remove_small_holes(mask_bool, max_size=hole_area)
+
+    # Remove small objects (max_size replaces min_size)
+    mask_clean = morphology.remove_small_objects(mask_filled, max_size=min_object_size)
 
     # Morphological closing (bridge gaps)
     if closing_radius > 0:
