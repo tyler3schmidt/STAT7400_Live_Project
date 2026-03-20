@@ -47,7 +47,7 @@ if __name__ == "__main__":
     for img_path in image_files:
         try:
             pred_label = predict_image(img_path)
-            predictions.append({"image_name": img_path.name, "prediction": pred_label})
+            predictions.append({"image_id": img_path.name, "prediction": pred_label})
         except Exception as e:
             print(f"Skipping {img_path.name} due to error: {e}")
 
