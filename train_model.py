@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 from sklearn.metrics import classification_report, accuracy_score
+from sklearn.model_selection import GridSearchCV
 
 # -----------------------
 # Load cached features
@@ -30,11 +31,20 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
+
+
+param_grid = {'C': [0.5, 1, 5, 10, 50, 100], 
+              'gamma': [0.01, 0.1, 1, "scale"], 
+              'kernel': ['rbf', 'linear', 'poly', 'sigmoid']}
+grid = GridSearchCV(SVC(), param_grid, cv=5, scoring='accuracy')
+grid.fit(X_train_scaled, y_train)
+print(grid.best_params_)
+
 # -----------------------
 # Train SVM
 # -----------------------
 print("Training SVM...")
-model = SVC(kernel="rbf", C=10, gamma="scale")
+model = SVC(kernel="rbf", C=1, gamma="scale")
 model.fit(X_train_scaled, y_train)
 
 # -----------------------
@@ -45,6 +55,8 @@ print("\nModel Performance")
 print("------------------")
 print("Accuracy:", accuracy_score(y_test, pred))
 print(classification_report(y_test, pred))
+
+
 
 # -----------------------
 # Save model
