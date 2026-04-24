@@ -9,12 +9,8 @@ source .venv/bin/activate
 
 Here simply run 
 ```bash
-python predict.py calibration_images/ test.csv
+python predict.py x
 ```
-and this will save the predictions to test.csv, with columns image_id and prediction. 
+with x being the covariates. This will return a prediction, either "fruit" or "vegetable"
 
-To get the images inside, if on mac or linux enter this repository use pwd to get the working directory and copy it. Then move to where you folder of test images and run 
-```bash
-cp calibration_images /users/user/STAT7400_Live_Project
-```
-or the equivalent folder name and directory location.
+The only necessary files are predict.py, scaler.pkl, and svm_model.pkl
