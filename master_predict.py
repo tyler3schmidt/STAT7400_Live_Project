@@ -72,4 +72,9 @@ def predict(feature_vector):
     meta_X = build_meta_features(base_models, X_df, class_order, base_model_names)
     pred = predict_labels_nnls(meta_X, nnls_weights_raw, class_order)[0]
 
-    return str(pred)
+    if pred == "apple" or pred == "orange":
+        return "fruit"
+    elif pred == "carrot" or pred == "cucumber":
+        return "vegetable"
+    else:        raise ValueError(f"Unexpected predicted class: {pred}")
+ 

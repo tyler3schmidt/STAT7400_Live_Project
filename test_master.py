@@ -1,6 +1,7 @@
 import time
 from pathlib import Path
 import sys
+import random
 
 BASE_DIR = Path(__file__).resolve().parent
 sys.path.append(str(BASE_DIR))
@@ -10,7 +11,13 @@ from master_predict import predict
 
 
 image_dir = BASE_DIR / "calibration_images"
-image_files = list(image_dir.glob("*.jpg"))
+image_files = (
+    list(image_dir.glob("*.jpg")) +
+    list(image_dir.glob("*.jpeg")) +
+    list(image_dir.glob("*.JPG")) +
+    list(image_dir.glob("*.JPEG"))
+)
+image_files = random.sample(image_files, min(20, len(image_files)))
 
 start = time.time()
 

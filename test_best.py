@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent
 sys.path.append(str(BASE_DIR))
 
 from preprocess_utils import extract_features_from_image
-from best_predict import predict
+from double_best_predict import predict
 
 
 image_dir = BASE_DIR / "calibration_images"
