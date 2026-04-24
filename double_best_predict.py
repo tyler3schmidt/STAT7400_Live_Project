@@ -7,7 +7,7 @@ import numpy as np
 # -----------------------
 BASE_DIR = Path(__file__).resolve().parent
 
-model = joblib.load(BASE_DIR / "catboost_combined_final_model.pkl")
+model = joblib.load(BASE_DIR / "best_catboost_pipeline.pkl")
 
 
 

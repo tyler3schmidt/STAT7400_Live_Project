@@ -9,8 +9,14 @@ from preprocess_utils import extract_features_from_image
 from predict import predict
 
 
-image_dir = BASE_DIR / "calibration_images"
-image_files = list(image_dir.glob("*.jpg"))
+image_dir = BASE_DIR / "Test_Images"
+image_files = (
+    list(image_dir.glob("*.jpg")) +
+    list(image_dir.glob("*.jpeg")) +
+    list(image_dir.glob("*.JPG")) +
+    list(image_dir.glob("*.JPEG"))
+)
+
 
 start = time.time()
 

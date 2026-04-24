@@ -10,14 +10,14 @@ from preprocess_utils import extract_features_from_image
 from master_predict import predict
 
 
-image_dir = BASE_DIR / "calibration_images"
+image_dir = BASE_DIR / "Test_Images"
 image_files = (
     list(image_dir.glob("*.jpg")) +
     list(image_dir.glob("*.jpeg")) +
     list(image_dir.glob("*.JPG")) +
     list(image_dir.glob("*.JPEG"))
 )
-image_files = random.sample(image_files, min(20, len(image_files)))
+
 
 start = time.time()
 
