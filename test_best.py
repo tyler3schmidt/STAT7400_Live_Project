@@ -10,7 +10,7 @@ from preprocess_utils import extract_features_from_image
 from best_predict import predict
 
 
-image_dir = BASE_DIR / "Test_Images"
+image_dir = BASE_DIR / "New_pictures"
 
 image_files = (
     list(image_dir.glob("*.jpg")) +

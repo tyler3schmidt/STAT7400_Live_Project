@@ -1,7 +1,7 @@
 import time
 from pathlib import Path
 import sys
-import random
+
 
 BASE_DIR = Path(__file__).resolve().parent
 sys.path.append(str(BASE_DIR))
@@ -10,7 +10,7 @@ from preprocess_utils import extract_features_from_image
 from master_predict import predict
 
 
-image_dir = BASE_DIR / "Test_Images"
+image_dir = BASE_DIR / "New_pictures"
 image_files = (
     list(image_dir.glob("*.jpg")) +
     list(image_dir.glob("*.jpeg")) +

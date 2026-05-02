@@ -1,0 +1,13 @@
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.7.2
+joblib==1.4.2
+scipy==1.13.1
+tabpfn==6.4.1
+catboost==1.2.10
+xgboost==2.0.3
+opencv-python==4.10.0.84
+scikit-image==0.24.0
+pyefd==1.6.0
+mahotas==1.4.13
+matplotlib==3.9.2
